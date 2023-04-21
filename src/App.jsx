@@ -2,6 +2,7 @@ import './App.css'
 import Quiz from './Quiz'
 import Start from './Start'
 import { createBrowserRouter } from 'react-router-dom'
+import Result from './Result'
 
 
 const Router = createBrowserRouter([
@@ -12,7 +13,11 @@ const Router = createBrowserRouter([
   {
     path:'/quiz',
     element: <Quiz />
-  }
+  },
+  {
+    path:'/result',
+    element:<Result />
+  },
 ])
 
 export default Router

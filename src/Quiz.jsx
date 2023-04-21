@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import ques from './assets/ques'
-import Start from './Start';
+import { Link } from 'react-router-dom';
+import Timer from './Timer';
 
 const Home = () => {
 
@@ -25,6 +26,7 @@ const Home = () => {
 
   return (
     <div>
+      <Timer />
       <div>
         <h1>{ques[currentQues].ques}</h1>
       </div>
@@ -35,11 +37,11 @@ const Home = () => {
       </div>
       <div>
         { currentQues === 0? 
-        <button disabled={true} onClick={() => handleBack()}>Back</button>
+        <button disabled={true}>Back</button>
         : <button onClick={() => handleBack()}>Back</button>
       }
         { ques.length -1 == currentQues ?
-        <button disabled={true} onClick={() => handleNext()}>Next</button>:
+        <Link to={'/result'}><button>Submit</button></Link>:
         <button onClick={() => handleNext()}>Next</button>}
       </div>
     </div>

@@ -20,7 +20,9 @@ const Timer = ()  => {
 
     return(
 
-        <p>Time Left : {Timer}sec </p>
+        <p>Time Left : {time}sec </p>
     )
 
 }
+
+export default Timer;
