@@ -1,16 +1,18 @@
 import './App.css'
 import Quiz from './Quiz'
 import Start from './Start'
+import { createBrowserRouter } from 'react-router-dom'
 
 
-function App() {
-  return (
-    <div className="App">
-      <Start />
-      <Quiz />
-        
-    </div>
-  )
-}
+const Router = createBrowserRouter([
+  {
+    path : '/',
+    element : <Start />
+  },
+  {
+    path:'/quiz',
+    element: <Quiz />
+  }
+])
 
-export default App
+export default Router
