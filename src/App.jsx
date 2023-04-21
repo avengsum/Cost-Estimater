@@ -1,11 +1,11 @@
 import './App.css'
-import Quiz from './components/Quiz'
-import Home from './Home'
+import Quiz from './Quiz'
+
 
 function App() {
   return (
     <div className="App">
-      <Home />
+      <Quiz />
         
     </div>
   )
