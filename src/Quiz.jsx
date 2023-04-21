@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import ques from './assets/ques'
+import Start from './Start';
 
 const Home = () => {
 
@@ -20,6 +21,7 @@ const Home = () => {
     setCurrentQues(currentQues+1);
   }
   console.log(score);
+
 
   return (
     <div>
