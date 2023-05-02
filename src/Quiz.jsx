@@ -6,13 +6,27 @@ import Timer from './Timer';
 const Home = () => {
 
   const [currentQues,setCurrentQues] = useState(0);
-  const [score , setScore] = useState(0);
+  const [selectedOption , setSelectedOption] = useState({});
+  const [score,setScore] = useState(0);
 
-  const handleScore = (isCorrect) => {
-    if(isCorrect){
-      setScore(score+1);
+  const handleOption = (selected) => {
+    if (selectedOption[currentQues] !== selected) {
+      setSelectedOption({...selectedOption, [currentQues]: selected});
     }
   }
+  console.log(selectedOption)
+
+  const handleScore = () => {
+    let newScore = 0
+    ques.forEach((ques,index) => {
+       if(ques.answer === selectedOption[index]){
+        newScore=+1;
+      }
+    })
+    setScore((current) => current + newScore)
+  }
+
+  console.log(score)
 
   const handleBack = () => {
     setCurrentQues(currentQues-1);
@@ -20,6 +34,7 @@ const Home = () => {
 
   const handleNext = () => {
     setCurrentQues(currentQues+1);
+    handleScore();
   }
   console.log(score);
 
@@ -32,7 +47,13 @@ const Home = () => {
       </div>
       <div>
         {ques[currentQues].ansOption.map((ques,index) => (
-          <button onClick={() => handleScore(ques.isCorrect)} key={index} >{ques.anwer}</button>
+          <label htmlFor="">
+            <input type='radio' 
+            value={ques.option}
+            onChange={() => handleOption(ques.option)}
+            name={ques[currentQues].ansOption}/>
+            {ques.option}
+          </label>
         ))}
       </div>
       <div>
